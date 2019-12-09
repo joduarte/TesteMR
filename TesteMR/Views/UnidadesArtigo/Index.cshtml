@@ -1,0 +1,91 @@
+﻿@model PaginatedList<TesteMR.Models.UnidadeArtigo>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewData["Title"] = "Pacotes";
+}
+
+<div class="card-header card-header-primary">
+    <h4 class="card-title ">Lista de Pacotes</h4>
+    <p class="card-category">
+        <a asp-action="Create">Inserir novo</a>
+    </p>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color">
+                <p align="right">
+                    Pesquisar por: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                    <input type="submit" value="Pesquisar" class="btn btn-default" /> |
+                    <a asp-action="Index">Retornar para a lista completa</a>
+                </p>
+            </div>
+        </form>
+        <table class="table table-hover">
+            <thead class=" text-primary">
+                <tr>
+                    <th scope="col">
+                        Artigos
+                    </th>
+                    <th scope="col">
+                        Unidades
+                    </th>
+                    <th scope="col">
+                        Quantidade
+                    </th>
+                    <th scope="col">
+                        Valor
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(modelItem => item.Artigo.cDescription)
+                        </td>
+                        <td scope="row">
+                            @Html.DisplayFor(modelItem => item.Unidade.cDescription)
+                        </td>
+                        <td scope="row">
+                            @Html.DisplayFor(modelItem => item.nBaseUnitQty)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nPrice)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.nId">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.nId">Detalhes</a> |
+                            <a asp-action="Delete" asp-route-id="@item.nId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @prevDisabled">
+            Anterior
+        </a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @nextDisabled">
+            Próximo
+        </a>
+    </div>
+</div>
+

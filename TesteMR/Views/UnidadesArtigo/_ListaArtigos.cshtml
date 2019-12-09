@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TesteMR.Models.Artigo>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cUnitCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nUnitPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cUnitCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nUnitPrice)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

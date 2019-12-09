@@ -1,0 +1,64 @@
+﻿@model TesteMR.Models.UnidadeArtigo
+
+@{
+    ViewData["Title"] = "Pacotes";
+}
+
+<div class="card-header card-header-primary">
+    <h4 class="card-title ">Delete</h4>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Artigo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Artigo.cDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Unidade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Unidade.cDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.nBaseUnitQty)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.nBaseUnitQty)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.nPrice)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.nPrice)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.dCreateDateTime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.dCreateDateTime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.dChangedDateTime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.dChangedDateTime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.uId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.uId)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="nId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Retornar a Lista</a>
+        </form>
+    </div>
+</div>

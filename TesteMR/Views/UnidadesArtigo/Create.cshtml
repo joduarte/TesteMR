@@ -1,0 +1,55 @@
+﻿@model TesteMR.Models.UnidadeArtigo
+
+@{
+    ViewData["Title"] = "Pacotes";
+}
+
+<div class="card-header card-header-primary">
+    <h4 class="card-title ">Inserir Novo</h4>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Artigo" class="control-label"></label>
+                        <select asp-for="ArtigoId" class="form-control"
+                                asp-items="ViewBag.Artigos">
+                        </select>
+                        <span asp-validation-for="ArtigoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Unidade" class="control-label"></label>
+                        <select asp-for="UnidadeId" class="form-control"
+                                asp-items="ViewBag.Unidades">
+                        </select>
+                        <span asp-validation-for="UnidadeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="nBaseUnitQty" class="control-label"></label>
+                        <input asp-for="nBaseUnitQty" class="form-control" />
+                        <span asp-validation-for="nBaseUnitQty" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="nPrice" class="control-label"></label>
+                        <input asp-for="nPrice" class="form-control" />
+                        <span asp-validation-for="nPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Retornar a lista</a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

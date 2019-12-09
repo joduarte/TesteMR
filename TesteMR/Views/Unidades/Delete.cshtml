@@ -1,0 +1,47 @@
+﻿@model TesteMR.Models.Unidade
+
+@{
+    ViewData["Title"] = "Unidades";
+}
+
+
+<div class="card-header card-header-primary">
+    <h4 class="card-title ">Delete</h4>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.cCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.cCode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.cDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.cDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.dCreateDateTime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.dCreateDateTime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.dChangedDateTime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.dChangedDateTime)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Retornar a lista</a>
+        </form>
+    </div>
+</div>
