@@ -9,7 +9,7 @@
 <div class="card-header card-header-primary">
     <h4 class="card-title ">Lista de Artigos</h4>
     <p class="card-category">
-        <a asp-action="Create">Inserir novo</a>
+        <a asp-action="Create"><i class="material-icons">fiber_new</i></a>
     </p>
 </div>
 <div class="card-body">
@@ -18,8 +18,8 @@
             <div class="form-actions no-color">
                 <p align="right">
                     Pesquisar por: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-                    <input type="submit" value="Pesquisar" class="btn btn-default" /> |
-                    <a asp-action="Index">Retornar para a lista completa</a>
+                    <a asp-action="Pesquisar"><i class="material-icons">find_in_page</i></a> |
+                    <a asp-action="Index"><i class="material-icons">clear</i></a>
                 </p>
             </div>
         </form>
@@ -58,9 +58,9 @@
                             @Html.DisplayFor(modelItem => item.nUnitPrice)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="material-icons">edit</i></a> |
+                            <a asp-action="Details" asp-route-id="@item.Id"><i class="material-icons">dehaze</i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="material-icons">delete</i></a>
                         </td>
                     </tr>
                 }
